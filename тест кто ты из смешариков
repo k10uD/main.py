@@ -1,0 +1,252 @@
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import (QApplication, QWidget,
+                                QLabel, QVBoxLayout, QPushButton, 
+                                QRadioButton, QButtonGroup)
+
+app = QApplication([])
+window = QWidget()
+
+window.setWindowTitle("Тест кто ты из смешариков")
+window.show()
+#------------------
+line = QVBoxLayout()
+vline = QVBoxLayout()
+
+label = QLabel('''
+Вопрос 1:
+Твои товарищи собрались совершить опасное и далекое путешествие? Они зовут тебя с собой. Как ты поступишь?
+Варианты ответов:
+''')
+vline.addWidget(label,  alignment=Qt.AlignHCenter )
+radio1 = QRadioButton('1) Что-то мне страшновато. Поеду, конечно, но нужно взять книжку и аптечку')
+radio2 = QRadioButton('2) Хаха, да я же сам все это и придумал')
+radio3 = QRadioButton('3) Поеду, но боюсь испачкать новое красивое платье')
+radio4 = QRadioButton('4) Я всех поведу, вот только на кого останется мой огород')
+
+rgroup = QButtonGroup()
+rgroup.addButton(radio1, id = 1)
+rgroup.addButton(radio2, id = 2)
+rgroup.addButton(radio3, id = 3)
+rgroup.addButton(radio4, id = 4)
+
+line.addWidget(radio1)
+line.addWidget(radio2)
+line.addWidget(radio3)
+line.addWidget(radio4)
+
+vline.addLayout(line)
+
+button = QPushButton('Следующий вопрос')
+vline.addWidget(button, alignment=Qt.AlignHCenter)
+
+
+def show_result(result):
+    label.hide()
+    radio1.hide()
+    radio2.hide()
+    radio3.hide()
+    radio4.hide()
+    button.hide()
+
+def check_second(result):
+    if rgroup.checkedId() == 1:
+        result = result + 1
+    elif rgroup.checkedId() == 2:
+        result = result + 2
+    elif rgroup.checkedId() == 3:
+        result = result + 4
+    elif rgroup.checkedId() == 4:
+        result = result + 3
+    show_result(result)
+
+label = QLabel('''
+Вопрос 2:
+А чем ты займешься в пути?
+Варианты ответов:
+''')
+vline.addWidget(label,  alignment=Qt.AlignHCenter )
+radio1 = QRadioButton('1) Поиграю в портативную приставку')
+radio2 = QRadioButton('2) Буду читать, о чем-то думать, или сочинять стихи')
+radio3 = QRadioButton('3) Расскажу друзьям познавательную и увлекательную историю')
+radio4 = QRadioButton('4) Посмотрю инстаграм, или что-нибудь на ютубе')
+
+rgroup = QButtonGroup()
+rgroup.addButton(radio1, id = 1)
+rgroup.addButton(radio2, id = 2)
+rgroup.addButton(radio3, id = 3)
+rgroup.addButton(radio4, id = 4)
+
+line.addWidget(radio1)
+line.addWidget(radio2)
+line.addWidget(radio3)
+line.addWidget(radio4)
+
+vline.addLayout(line)
+
+button = QPushButton('Следующий вопрос')
+vline.addWidget(button, alignment=Qt.AlignHCenter)
+
+
+def show_result(result):
+    label.hide()
+    radio1.hide()
+    radio2.hide()
+    radio3.hide()
+    radio4.hide()
+    button.hide()
+
+def check_second(result):
+    if rgroup.checkedId() == 1:
+        result = result + 2
+    elif rgroup.checkedId() == 2:
+        result = result + 1
+    elif rgroup.checkedId() == 3:
+        result = result + 3
+    elif rgroup.checkedId() == 4:
+        result = result + 4
+    show_result(result)
+
+label = QLabel('''
+Вопрос 3:
+Машина, на которой ты с друзьями ехал, сломалась в дороге. Что же теперь делать?
+Варианты ответов:
+''')
+vline.addWidget(label,  alignment=Qt.AlignHCenter )
+radio1 = QRadioButton('1) Попробую отремонтировать. Все можно починить, если приложить смекалку')
+radio2 = QRadioButton('2) Какой ужас. Это провал. Караууул.')
+radio3 = QRadioButton('3) Мда, это мы не предусмотрели. Ну ладно, сейчас чего-нибудь придумаем')
+radio4 = QRadioButton('4) Хорошо, что я взял с собой все для выживания в этой местности')
+
+rgroup = QButtonGroup()
+rgroup.addButton(radio1, id = 1)
+rgroup.addButton(radio2, id = 2)
+rgroup.addButton(radio3, id = 3)
+rgroup.addButton(radio4, id = 4)
+
+line.addWidget(radio1)
+line.addWidget(radio2)
+line.addWidget(radio3)
+line.addWidget(radio4)
+
+vline.addLayout(line)
+
+button = QPushButton('Следующий вопрос')
+vline.addWidget(button, alignment=Qt.AlignHCenter)
+
+
+def show_result(result):
+    label.hide()
+    radio1.hide()
+    radio2.hide()
+    radio3.hide()
+    radio4.hide()
+    button.hide()
+
+def check_second(result):
+    if rgroup.checkedId() == 1:
+        result = result + 3
+    elif rgroup.checkedId() == 2:
+        result = result + 4
+    elif rgroup.checkedId() == 3:
+        result = result + 2
+    elif rgroup.checkedId() == 4:
+        result = result + 1
+    show_result(result)
+
+label = QLabel('''
+Вопрос 4:
+Вы с друзьями пробираетесь по дремучему лесу. Один отстал и потерялся. Как быть?
+Варианты ответов:
+''')
+vline.addWidget(label,  alignment=Qt.AlignHCenter )
+radio1 = QRadioButton('1) Немедленно организую операцию по спасению товарища')
+radio2 = QRadioButton('2) А что, кого-то не хватает? Мне казалось все на месте')
+radio3 = QRadioButton('3) Это кошмар. Мне уже не нравиться путешествие')
+radio4 = QRadioButton('4) Попытаюсь найтись, ведь это я потерялся')
+
+rgroup = QButtonGroup()
+rgroup.addButton(radio1, id = 1)
+rgroup.addButton(radio2, id = 2)
+rgroup.addButton(radio3, id = 3)
+rgroup.addButton(radio4, id = 4)
+
+line.addWidget(radio1)
+line.addWidget(radio2)
+line.addWidget(radio3)
+line.addWidget(radio4)
+
+vline.addLayout(line)
+
+button = QPushButton('Следующий вопрос')
+vline.addWidget(button, alignment=Qt.AlignHCenter)
+
+
+def show_result(result):
+    label.hide()
+    radio1.hide()
+    radio2.hide()
+    radio3.hide()
+    radio4.hide()
+    button.hide()
+
+def check_second(result):
+    if rgroup.checkedId() == 1:
+        result = result + 3
+    elif rgroup.checkedId() == 2:
+        result = result + 4
+    elif rgroup.checkedId() == 3:
+        result = result + 2
+    elif rgroup.checkedId() == 4:
+        result = result + 1
+    show_result(result)
+
+def next_question(result):
+    label.setText('''
+Вопрос 5:
+
+На вас напали местные аборигены. Настроены они весьма враждебно. Как же лучше поступить?
+Варианты ответов:
+''')
+    radio1.setText('1) Попробую договориться с этими, как их там?')
+    radio2.setText('2) Нужно взять этих аборигенов, да по сопатке')
+    radio3.setText('3) Непростая ситуация. Лучше все как следует обдумать')
+    radio4.setText('4) Бежим. Скорее прячемся. Вон за то дерево')
+    button.clicked.connect(lambda: check_second(result))
+
+def check(result = 0):
+    if rgroup.checkedId() == 1:
+        result = result + 2
+    elif rgroup.checkedId() == 2:
+        result = result + 3
+    elif rgroup.checkedId() == 3:
+        result = result + 1
+    elif rgroup.checkedId() == 4:
+        result = result + 4
+    next_question(result)
+    score = QLabel("Ты набрал: " + str(result))
+        vline.addWidget(score, alignment = Qt.AlignCenter)
+
+button.clicked.connect(check)
+
+
+window.setLayout(vline)
+#-------------------------------------------------
+
+app.exec_()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#score = QLabel("Ты набрал: " + str(result))
+    #vline.addWidget(score, alignment = Qt.AlignCenter)
